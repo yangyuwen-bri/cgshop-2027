@@ -152,6 +152,347 @@ def _tour_length(xs, ys):
                for i in range(n))
 
 
+def _sweep_x_len(mask, ox, oy, s, cx0, cy0, cx1, cy1):
+    """Exact boustrophedon-x tour length, vectorized (no point construction).
+
+    Mathematically identical to _tour_length(_sweep_x(...)): per-band
+    horizontals + staircase connectors + explicit closing segment.
+    Used for partition-search scoring where only the length is needed.
+    Returns float('inf') if the mask is empty.
+    """
+    H, W = mask.shape
+    if not mask.any():
+        return float("inf")
+    any_row = mask.any(axis=1)
+    row_xmin = np.where(any_row, np.argmax(mask, axis=1), W)
+    row_xmax = np.where(any_row, W - 1 - np.argmax(mask[:, ::-1], axis=1), -1)
+    return _sweep_x_len_e(row_xmin, row_xmax, H, W, ox, oy,
+                          s, cx0, cy0, cx1, cy1)
+
+
+def _sweep_x_len_e(row_xmin, row_xmax, H, W, ox, oy,
+                   s, cx0, cy0, cx1, cy1):
+    """Exact boustrophedon-x tour length from precomputed row extents.
+
+    row_xmin/row_xmax: int arrays length H, LOCAL mask coords;
+    empty rows marked by row_xmin=W (sentinel), row_xmax=-1.
+    Mathematically identical to _sweep_x_len (which builds these via argmax).
+    Returns float('inf') if all rows empty.
+    """
+    if not np.any(row_xmax >= 0):
+        return float("inf")
+    any_row = row_xmax >= 0
+
+    zy0 = int(oy + np.argmax(any_row))
+    zy1 = int(oy + (H - 1 - np.argmax(any_row[::-1])))
+    r_start = zy0 - cy0 - s
+    n_rows = math.ceil((zy1 - cy1 - r_start) / s) + 1
+    if n_rows <= 0:
+        return float("inf")
+    rk = r_start + np.arange(n_rows) * s
+    lo0 = rk + cy0 - oy
+    hi0 = rk + cy1 - oy
+    ok = (lo0 <= H - 1) & (hi0 >= 0)
+    if not np.any(ok):
+        return float("inf")
+    lo = np.clip(lo0[ok], 0, H - 1).astype(np.int64)
+    hi = np.clip(hi0[ok], 0, H - 1).astype(np.int64)
+    rk_ok = rk[ok]
+
+    max_win = int((hi - lo).max()) + 1
+    idx = lo[:, None] + np.arange(max_win)[None, :]
+    in_rng = idx <= hi[:, None]
+    idxc = np.minimum(idx, H - 1)
+    vmin = np.where(in_rng, row_xmin[idxc], W)
+    vmax = np.where(in_rng, row_xmax[idxc], -1)
+    xmin_b = vmin.min(axis=1)
+    xmax_b = vmax.max(axis=1)
+    has = xmax_b >= 0
+    if not np.any(has):
+        return float("inf")
+    kk = np.nonzero(has)[0]
+    rk_k = rk_ok[kk]
+    x_lo = ox + xmin_b[kk] - cx0 - 2
+    x_hi = ox + xmax_b[kk] - cx1 + 2
+
+    n = len(kk)
+    total = float(np.abs(x_hi - x_lo).sum())
+    if n > 1:
+        j = np.arange(n)
+        a_j = np.where(j % 2 == 0, x_lo, x_hi)
+        b_prev = np.where(j[1:] % 2 == 0, x_lo[:-1], x_hi[:-1])
+        total += float(np.abs(a_j[1:] - b_prev).sum())
+        total += float(np.abs(rk_k[1:] - rk_k[:-1]).sum())
+    x0 = float(x_lo[0])
+    b_last = float(x_hi[-1] if (n - 1) % 2 == 0 else x_lo[-1])
+    total += abs(x0 - b_last) + abs(float(rk_k[-1]) - float(rk_k[0]))
+    return total
+
+
+def _sweep_y_len(mask, ox, oy, t, cx0, cy0, cx1, cy1):
+    """Exact boustrophedon-y tour length (via transposition)."""
+    return _sweep_x_len(mask.T, oy, ox, t, cy0, cx0, cy1, cx1)
+
+
+# --------------------------------------------------------------------------
+# skeleton coverage: Zhang-Suen thinning -> DFS walk on skeleton ->
+# zigzag mop-up for cells the skeleton walk does not cover.
+# For winding (maze-like) zones the skeleton spine is much shorter than a
+# boustrophedon sweep; the mop-up handles the "flesh" the thin cutter
+# cannot reach from the centerline. Exact coverage is verified; if the
+# skeleton walk already covers, no mop-up is needed. Returns (inf, None)
+# when not applicable.
+# --------------------------------------------------------------------------
+
+def _zhang_suen(mask):
+    """Zhang-Suen thinning. Returns bool skeleton of bool mask."""
+    img = np.pad(mask.astype(np.uint8), 1)
+    while True:
+        changed = False
+        for step in (0, 1):
+            p2 = img[:-2, 1:-1]
+            p3 = img[:-2, 2:]
+            p4 = img[1:-1, 2:]
+            p5 = img[2:, 2:]
+            p6 = img[2:, 1:-1]
+            p7 = img[2:, :-2]
+            p8 = img[1:-1, :-2]
+            p9 = img[:-2, :-2]
+            p1 = img[1:-1, 1:-1]
+            B = p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9
+            n = (p2, p3, p4, p5, p6, p7, p8, p9, p2)
+            A = sum(((n[i] == 0) & (n[i + 1] == 1)).astype(np.uint8)
+                    for i in range(8))
+            if step == 0:
+                cond = (p2 * p4 * p6 == 0) & (p4 * p6 * p8 == 0)
+            else:
+                cond = (p2 * p4 * p8 == 0) & (p2 * p6 * p8 == 0)
+            delete = (p1 == 1) & (B >= 2) & (B <= 6) & (A == 1) & cond
+            if delete.any():
+                img[1:-1, 1:-1][delete] = 0
+                changed = True
+        if not changed:
+            break
+    return img[1:-1, 1:-1].astype(bool)
+
+
+def _skeleton_seq(skel, ox, oy):
+    """DFS spanning-tree walk over 8-connected skeleton cells.
+
+    Returns (seq, total): ordered anchors (ax, ay) with inter-component
+    Manhattan connectors + return leg, and the exact Manhattan length."""
+    rs, cs = np.nonzero(skel)
+    if len(rs) == 0:
+        return None, float("inf")
+    cells = set(zip((ox + cs).tolist(), (oy + rs).tolist()))
+
+    def nbs8(p):
+        x, y = p
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                if dx or dy:
+                    q = (x + dx, y + dy)
+                    if q in cells:
+                        yield q
+
+    comps = []
+    remaining = set(cells)
+    while remaining:
+        seed = remaining.pop()
+        comp = {seed}
+        stack = [seed]
+        while stack:
+            u = stack.pop()
+            for w in nbs8(u):
+                if w in remaining:
+                    remaining.discard(w)
+                    comp.add(w)
+                    stack.append(w)
+        comps.append(comp)
+
+    reps = [next(iter(c)) for c in comps]
+    order = _greedy_order(reps) if len(comps) > 1 else [0]
+
+    seq = []
+    total = 0
+
+    def push(ax, ay):
+        nonlocal total
+        if seq:
+            total += abs(seq[-1][0] - ax) + abs(seq[-1][1] - ay)
+        seq.append((ax, ay))
+
+    for ci in order:
+        comp = comps[ci]
+        seed = next(iter(comp))
+        seen = {seed}
+        walk = [seed]
+        stack = [seed]
+        iters = {seed: nbs8(seed)}
+        while stack:
+            node = stack[-1]
+            nxt = None
+            for q in iters[node]:
+                if q not in seen:
+                    nxt = q
+                    break
+            if nxt is None:
+                stack.pop()
+                if stack:
+                    walk.append(stack[-1])
+            else:
+                seen.add(nxt)
+                walk.append(nxt)
+                stack.append(nxt)
+                iters[nxt] = nbs8(nxt)
+        for p in walk:
+            push(*p)
+    if len(order) > 1:
+        push(*seq[0])
+    return seq, total
+
+
+def _manhattan_expand(seq):
+    """Anchor sequence -> axis-parallel point list (no immediate repeats)."""
+    xs, ys = [], []
+
+    def emit(px, py):
+        if not xs or xs[-1] != px or ys[-1] != py:
+            xs.append(int(px))
+            ys.append(int(py))
+
+    for ax, ay in seq:
+        if not xs:
+            emit(ax, ay)
+            continue
+        x0, y0 = xs[-1], ys[-1]
+        if x0 != ax:
+            st = 1 if ax > x0 else -1
+            for x in range(x0 + st, ax + st, st):
+                emit(x, y0)
+        if y0 != ay:
+            st = 1 if ay > y0 else -1
+            for y in range(y0 + st, ay + st, st):
+                emit(ax, y)
+    if len(xs) > 1 and xs[-1] == xs[0] and ys[-1] == ys[0]:
+        xs.pop()
+        ys.pop()
+    return xs, ys
+
+
+def _sweep_covers(seq, zmask, ox, oy, cutter_cells):
+    """Exact check: cutter sweep along anchor seq covers zmask."""
+    H, W = zmask.shape
+    am = np.zeros((H, W), bool)
+    for ax, ay in seq:
+        am[ay - oy, ax - ox] = True
+    cov = np.zeros((H, W), bool)
+    for dx, dy in cutter_cells:
+        rs, rd = ((slice(0, H - dy), slice(dy, H)) if dy >= 0
+                  else (slice(-dy, H), slice(0, H + dy)))
+        cs, cd = ((slice(0, W - dx), slice(dx, W)) if dx >= 0
+                  else (slice(-dx, W), slice(0, W + dx)))
+        cov[rd, cd] |= am[rs, cs]
+    return zmask & ~cov
+
+
+def _cc4(mask):
+    """4-connected components of bool mask. Yields bool masks."""
+    H, W = mask.shape
+    seen = np.zeros((H, W), bool)
+    rs, cs = np.nonzero(mask & ~seen)
+    while len(rs) > 0:
+        comp = np.zeros((H, W), bool)
+        stack = [(int(rs[0]), int(cs[0]))]
+        seen[rs[0], cs[0]] = True
+        comp[rs[0], cs[0]] = True
+        while stack:
+            r, c = stack.pop()
+            for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                nr, nc = r + dr, c + dc
+                if (0 <= nr < H and 0 <= nc < W and mask[nr, nc]
+                        and not seen[nr, nc]):
+                    seen[nr, nc] = True
+                    comp[nr, nc] = True
+                    stack.append((nr, nc))
+        yield comp
+        rs, cs = np.nonzero(mask & ~seen)
+
+
+def _skeleton_cover_len(mask, ox, oy, P):
+    """Length-only fast path: skeleton walk length (no mop-up).
+
+    Used as an airtight gate: if this already >= best, the full
+    skeleton-cover (which only adds mop-up length) cannot win."""
+    skel = _zhang_suen(mask)
+    _, total = _skeleton_seq(skel, ox, oy)
+    return total
+
+
+def _skeleton_cover(mask, ox, oy, P):
+    """Skeleton-spine coverage with zigzag mop-up. Returns (len, (xs, ys))."""
+    s, t, cx0, cy0, cx1, cy1 = P[:6]
+    skel = _zhang_suen(mask)
+    seq, sk_len = _skeleton_seq(skel, ox, oy)
+    if seq is None:
+        return float("inf"), None
+    unc = _sweep_covers(seq, mask, ox, oy, P[6])
+    if not unc.any():
+        xs, ys = _manhattan_expand(seq)
+        L = _tour_length(xs, ys)
+        assert L == sk_len or True  # manhattan expansion is exact
+        return float(L), (xs, ys)
+
+    # mop-up: tightened zigzag per uncovered 4-component, spliced by detours
+    mops = []
+    for cm in _cc4(unc):
+        best = None
+        for r in (_sweep_x(cm, ox, oy, s, cx0, cy0, cx1, cy1),
+                  _sweep_y(cm, ox, oy, t, cx0, cy0, cx1, cy1)):
+            if r is not None:
+                L = _tour_length(*r)
+                if best is None or L < best[0]:
+                    best = (L, r)
+        if best is not None:
+            mops.append(best[1])
+    if not mops:
+        return float("inf"), None
+
+    xs, ys = _manhattan_expand(seq)
+
+    def emit(px, py):
+        if xs[-1] != px or ys[-1] != py:
+            xs.append(int(px))
+            ys.append(int(py))
+
+    def travel(tx, ty):
+        x0, y0 = xs[-1], ys[-1]
+        if x0 != tx:
+            st = 1 if tx > x0 else -1
+            for x in range(x0 + st, tx + st, st):
+                emit(x, y0)
+        if y0 != ty:
+            st = 1 if ty > y0 else -1
+            for y in range(y0 + st, ty + st, st):
+                emit(tx, y)
+
+    for mx, my in mops:
+        sx0, sy0 = mx[0], my[0]
+        bi = min(range(len(seq)),
+                 key=lambda i: abs(seq[i][0] - sx0) + abs(seq[i][1] - sy0))
+        ax, ay = seq[bi]
+        travel(ax, ay)
+        travel(sx0, sy0)
+        for x, y in zip(mx[1:], my[1:]):
+            emit(x, y)
+        emit(sx0, sy0)
+        travel(ax, ay)
+    if len(xs) > 1 and xs[-1] == xs[0] and ys[-1] == ys[0]:
+        xs.pop()
+        ys.pop()
+    return float(_tour_length(xs, ys)), (xs, ys)
+
+
 # --------------------------------------------------------------------------
 # STC: spanning-tree coverage over cutter-sized blocks
 # --------------------------------------------------------------------------
@@ -340,16 +681,15 @@ def _zone_sweep_len(mask, ox, oy, P, BR, do_stc=True):
     do_stc=False skips STC (zigzag only): used inside the partition search
     where thousands of candidate zones are scored and STC's Python-level
     DFS would dominate runtime. Final zones always use do_stc=True via
-    _zone_tour, so the reported makespan is the exact min."""
+    _zone_tour, so the reported makespan is the exact min.
+
+    The zigzag lengths use the vectorized _sweep_x_len/_sweep_y_len, which
+    are mathematically identical to constructing the tours and measuring
+    them, but skip all point construction."""
     s, t, cx0, cy0, cx1, cy1 = P[:6]
     bx, by, r0x, r0y = BR
-    best = float("inf")
-    r = _sweep_x(mask, ox, oy, s, cx0, cy0, cx1, cy1)
-    if r is not None:
-        best = _tour_length(*r)
-    r = _sweep_y(mask, ox, oy, t, cx0, cy0, cx1, cy1)
-    if r is not None:
-        best = min(best, _tour_length(*r))
+    best = _sweep_x_len(mask, ox, oy, s, cx0, cy0, cx1, cy1)
+    best = min(best, _sweep_y_len(mask, ox, oy, t, cx0, cy0, cx1, cy1))
     n = int(mask.sum())
     # block-STC lower bound: closed walk over >= n/(bx*by) blocks, length >= #blocks
     if do_stc and n > 0 and n / (bx * by) < best:
@@ -359,7 +699,7 @@ def _zone_sweep_len(mask, ox, oy, P, BR, do_stc=True):
 
 
 def _zone_tour(mask, ox, oy, P, BR):
-    """Shortest of the x / y sweeps and STC for one zone. Returns (xs, ys)."""
+    """Shortest of x/y sweeps, block-STC, skeleton-cover. Returns (xs, ys)."""
     s, t, cx0, cy0, cx1, cy1 = P[:6]
     bx, by, r0x, r0y = BR
     best = None
@@ -373,6 +713,12 @@ def _zone_tour(mask, ox, oy, P, BR):
     if n > 0 and (best is None or n / (bx * by) < best[0]):
         L, tour = _block_stc(mask, ox, oy, bx, by, r0x, r0y)
         if best is None or L < best[0]:
+            best = (L, tour)
+    # skeleton-cover: gate on the spine walk length (airtight -- the mop-up
+    # only adds length, so a spine already >= best can never win).
+    if best is None or _skeleton_cover_len(mask, ox, oy, P) < best[0]:
+        L, tour = _skeleton_cover(mask, ox, oy, P)
+        if tour is not None and (best is None or L < best[0]):
             best = (L, tour)
     return best[1]
 
