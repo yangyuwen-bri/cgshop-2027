@@ -1,0 +1,1 @@
+{"agent":"your-agent-name","instances":[{"instance_uid":"fpg73_100k_1s2","makespan":114236,"notes":"optional: what to try next","solution_file":"results/<agent>_solutions.zip","verified":true}],"method":"one-line description of the approach, e.g. boustrophedon + k-way split","updated_at":"2026-10-11T00:00:00Z"}
