@@ -1,532 +1,532 @@
 {
- "agent": "yomi",
- "instances": [
-  {
-   "instance_uid": "fpg73_100k_1s2",
-   "makespan": 99488,
-   "notes": "solve 0.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "fpg73_100k_2s2",
-   "makespan": 48794,
-   "notes": "solve 2.5s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "fpg73_100k_3s2",
-   "makespan": 34586,
-   "notes": "solve 3.5s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "fpg73_1k_1s2",
-   "makespan": 1008,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "fpg73_1k_2s2",
-   "makespan": 512,
-   "notes": "solve 0.2s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "fpg73_1k_3s2",
-   "makespan": 370,
-   "notes": "solve 0.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "fpg73_20k_1s2",
-   "makespan": 9784,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "fpg73_20k_2s2",
-   "makespan": 5032,
-   "notes": "solve 0.5s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "fpg73_20k_3s2",
-   "makespan": 3636,
-   "notes": "solve 0.8s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "iso_11k_6k_3p",
-   "makespan": 1794,
-   "notes": "solve 0.6s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "iso_145k_26k_3s3",
-   "makespan": 6280,
-   "notes": "solve 1.4s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "iso_191_11k_2l1",
-   "makespan": 7990,
-   "notes": "solve 2.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "iso_260k_15k_1d6",
-   "makespan": 6144,
-   "notes": "solve 0.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "iso_567_6466_3l1",
-   "makespan": 4672,
-   "notes": "solve 1.7s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "iso_725k_1813_3d6",
-   "makespan": 374,
-   "notes": "solve 0.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "iso_7k_11k_1s4",
-   "makespan": 2258,
-   "notes": "solve 0.4s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "isoa_1371_100k_3s2",
-   "makespan": 38650,
-   "notes": "solve 4.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "isoa_13m_98k_3l1",
-   "makespan": 77614,
-   "notes": "solve 8.6s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "isoa_143k_3k_2l1",
-   "makespan": 3612,
-   "notes": "solve 0.6s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "isoa_28k_1203_1l1",
-   "makespan": 2018,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_1545_100k_1d6",
-   "makespan": 48056,
-   "notes": "solve 0.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_189k_10k_3p",
-   "makespan": 3808,
-   "notes": "solve 1.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_189k_4k_2s2",
-   "makespan": 2040,
-   "notes": "solve 0.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_25k_26k_1s3",
-   "makespan": 17422,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_25k_30k_3l1",
-   "makespan": 21742,
-   "notes": "solve 4.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_32k_3k_1s4",
-   "makespan": 1518,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_34k_1504_2p",
-   "makespan": 922,
-   "notes": "solve 0.2s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_34k_31k_3l1",
-   "makespan": 23810,
-   "notes": "solve 3.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_381k_40k_2s2",
-   "makespan": 16290,
-   "notes": "solve 1.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "octa_3k_3k_1s2",
-   "makespan": 3280,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla34k_75k_1p",
-   "makespan": 48920,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla34k_75k_2p",
-   "makespan": 24534,
-   "notes": "solve 1.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla34k_75k_3p",
-   "makespan": 17788,
-   "notes": "solve 1.8s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla7k_15k_1p",
-   "makespan": 9458,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla7k_15k_2p",
-   "makespan": 4500,
-   "notes": "solve 0.4s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla7k_15k_3p",
-   "makespan": 3282,
-   "notes": "solve 0.7s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla7k_2k_1p",
-   "makespan": 1378,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla7k_2k_2p",
-   "makespan": 716,
-   "notes": "solve 0.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "pla7k_2k_3p",
-   "makespan": 498,
-   "notes": "solve 0.2s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smo_1639_26k_1l1",
-   "makespan": 56428,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_1439_25k_2p",
-   "makespan": 8872,
-   "notes": "solve 0.8s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_14k_6k_1s2",
-   "makespan": 4218,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_26k_26k_1p",
-   "makespan": 26340,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_275k_4k_3p",
-   "makespan": 1890,
-   "notes": "solve 0.6s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_39k_4k_3s2",
-   "makespan": 1220,
-   "notes": "solve 0.5s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_47k_25k_3s3",
-   "makespan": 4506,
-   "notes": "solve 0.8s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_47k_6k_2s2",
-   "makespan": 2422,
-   "notes": "solve 0.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_589k_867_2p",
-   "makespan": 520,
-   "notes": "solve 0.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_5k_4k_2s4",
-   "makespan": 1304,
-   "notes": "solve 0.2s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_69k_6k_3d6",
-   "makespan": 1790,
-   "notes": "solve 0.5s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_882k_481_3s3",
-   "makespan": 168,
-   "notes": "solve 0.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "smr_89k_11k_3s4",
-   "makespan": 2292,
-   "notes": "solve 0.7s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_10k_26k_3l1",
-   "makespan": 15442,
-   "notes": "solve 3.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_110k_86k_2p",
-   "makespan": 49260,
-   "notes": "solve 2.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_11k_11k_3d6",
-   "makespan": 1966,
-   "notes": "solve 0.5s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_11k_305_1d6",
-   "makespan": 184,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_246_821_1s3",
-   "makespan": 690,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_324_26k_1s3",
-   "makespan": 13752,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_40k_100k_3p",
-   "makespan": 33708,
-   "notes": "solve 3.7s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_43k_6k_2d6",
-   "makespan": 1944,
-   "notes": "solve 0.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_52k_26k_3l1",
-   "makespan": 16710,
-   "notes": "solve 2.8s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_52k_455_2s2",
-   "makespan": 282,
-   "notes": "solve 0.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_887k_72k_3s2",
-   "makespan": 30360,
-   "notes": "solve 3.4s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_isoa28k_12k_1c6",
-   "makespan": 6648,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_isoa28k_12k_2c6",
-   "makespan": 3254,
-   "notes": "solve 0.4s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_isoa28k_12k_3c6",
-   "makespan": 2312,
-   "notes": "solve 0.6s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_isoa28k_27k_1c6",
-   "makespan": 14142,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_isoa28k_27k_2c6",
-   "makespan": 6700,
-   "notes": "solve 0.6s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "srpg_isoa28k_27k_3c6",
-   "makespan": 4876,
-   "notes": "solve 1.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "usa14k_75k_1p",
-   "makespan": 42226,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "usa14k_75k_2p",
-   "makespan": 21420,
-   "notes": "solve 1.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "usa14k_75k_3p",
-   "makespan": 15572,
-   "notes": "solve 2.3s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "xrh24k_30k_1p",
-   "makespan": 16418,
-   "notes": "solve 0.0s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "xrh24k_30k_2p",
-   "makespan": 8352,
-   "notes": "solve 0.6s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  },
-  {
-   "instance_uid": "xrh24k_30k_3p",
-   "makespan": 6032,
-   "notes": "solve 1.1s",
-   "solution_file": "results/yomi_solutions.zip",
-   "verified": true
-  }
- ],
- "method": "recursive-bisection partition into k zones (exact sweep-length cut scoring, coarse-to-fine) + tightened boustrophedon sweep per zone (skip empty bands, per-row x-tightening, shorter of x/y orientations)",
- "updated_at": "2026-10-11T05:44:55Z"
+  "agent": "yomi",
+  "instances": [
+    {
+      "instance_uid": "fpg73_100k_1s2",
+      "makespan": 99488,
+      "notes": "solve 0.9s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "fpg73_100k_2s2",
+      "makespan": 48794,
+      "notes": "solve 1.9s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "fpg73_100k_3s2",
+      "makespan": 31496,
+      "notes": "solve 67.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "fpg73_1k_1s2",
+      "makespan": 1008,
+      "notes": "solve 0.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "fpg73_1k_2s2",
+      "makespan": 512,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "fpg73_1k_3s2",
+      "makespan": 346,
+      "notes": "solve 6.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "fpg73_20k_1s2",
+      "makespan": 9784,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "fpg73_20k_2s2",
+      "makespan": 5032,
+      "notes": "solve 0.4s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "fpg73_20k_3s2",
+      "makespan": 3320,
+      "notes": "solve 21.4s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "iso_11k_6k_3p",
+      "makespan": 1694,
+      "notes": "solve 25.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "iso_145k_26k_3s3",
+      "makespan": 5782,
+      "notes": "solve 23.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "iso_191_11k_2l1",
+      "makespan": 5250,
+      "notes": "solve 1.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "iso_260k_15k_1d6",
+      "makespan": 6144,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "iso_567_6466_3l1",
+      "makespan": 2256,
+      "notes": "solve 54.4s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "iso_725k_1813_3d6",
+      "makespan": 364,
+      "notes": "solve 6.9s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "iso_7k_11k_1s4",
+      "makespan": 2258,
+      "notes": "solve 0.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "isoa_1371_100k_3s2",
+      "makespan": 33508,
+      "notes": "solve 86.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "isoa_13m_98k_3l1",
+      "makespan": 38610,
+      "notes": "solve 224.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "isoa_143k_3k_2l1",
+      "makespan": 2208,
+      "notes": "solve 0.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "isoa_28k_1203_1l1",
+      "makespan": 1128,
+      "notes": "solve 0.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_1545_100k_1d6",
+      "makespan": 41612,
+      "notes": "solve 0.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_189k_10k_3p",
+      "makespan": 3564,
+      "notes": "solve 34.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_189k_4k_2s2",
+      "makespan": 2040,
+      "notes": "solve 0.3s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_25k_26k_1s3",
+      "makespan": 17422,
+      "notes": "solve 0.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_25k_30k_3l1",
+      "makespan": 10320,
+      "notes": "solve 113.3s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_32k_3k_1s4",
+      "makespan": 1518,
+      "notes": "solve 0.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_34k_1504_2p",
+      "makespan": 876,
+      "notes": "solve 0.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_34k_31k_3l1",
+      "makespan": 12072,
+      "notes": "solve 108.3s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_381k_40k_2s2",
+      "makespan": 16290,
+      "notes": "solve 0.9s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "octa_3k_3k_1s2",
+      "makespan": 3280,
+      "notes": "solve 0.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla34k_75k_1p",
+      "makespan": 46988,
+      "notes": "solve 0.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla34k_75k_2p",
+      "makespan": 23916,
+      "notes": "solve 1.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla34k_75k_3p",
+      "makespan": 16044,
+      "notes": "solve 62.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla7k_15k_1p",
+      "makespan": 8584,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla7k_15k_2p",
+      "makespan": 4420,
+      "notes": "solve 0.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla7k_15k_3p",
+      "makespan": 2990,
+      "notes": "solve 23.8s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla7k_2k_1p",
+      "makespan": 1276,
+      "notes": "solve 0.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla7k_2k_2p",
+      "makespan": 662,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "pla7k_2k_3p",
+      "makespan": 456,
+      "notes": "solve 8.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smo_1639_26k_1l1",
+      "makespan": 20052,
+      "notes": "solve 0.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_1439_25k_2p",
+      "makespan": 8044,
+      "notes": "solve 0.7s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_14k_6k_1s2",
+      "makespan": 4218,
+      "notes": "solve 0.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_26k_26k_1p",
+      "makespan": 20060,
+      "notes": "solve 0.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_275k_4k_3p",
+      "makespan": 1652,
+      "notes": "solve 20.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_39k_4k_3s2",
+      "makespan": 1154,
+      "notes": "solve 7.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_47k_25k_3s3",
+      "makespan": 4100,
+      "notes": "solve 6.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_47k_6k_2s2",
+      "makespan": 2422,
+      "notes": "solve 0.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_589k_867_2p",
+      "makespan": 520,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_5k_4k_2s4",
+      "makespan": 1304,
+      "notes": "solve 0.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_69k_6k_3d6",
+      "makespan": 1698,
+      "notes": "solve 17.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_882k_481_3s3",
+      "makespan": 168,
+      "notes": "solve 3.4s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "smr_89k_11k_3s4",
+      "makespan": 2050,
+      "notes": "solve 16.3s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_10k_26k_3l1",
+      "makespan": 8148,
+      "notes": "solve 86.7s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_110k_86k_2p",
+      "makespan": 42640,
+      "notes": "solve 2.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_11k_11k_3d6",
+      "makespan": 1862,
+      "notes": "solve 18.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_11k_305_1d6",
+      "makespan": 184,
+      "notes": "solve 0.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_246_821_1s3",
+      "makespan": 690,
+      "notes": "solve 0.0s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_324_26k_1s3",
+      "makespan": 13752,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_40k_100k_3p",
+      "makespan": 24364,
+      "notes": "solve 132.3s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_43k_6k_2d6",
+      "makespan": 1944,
+      "notes": "solve 0.4s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_52k_26k_3l1",
+      "makespan": 8202,
+      "notes": "solve 90.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_52k_455_2s2",
+      "makespan": 282,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_887k_72k_3s2",
+      "makespan": 27738,
+      "notes": "solve 89.5s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_isoa28k_12k_1c6",
+      "makespan": 6648,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_isoa28k_12k_2c6",
+      "makespan": 3254,
+      "notes": "solve 0.4s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_isoa28k_12k_3c6",
+      "makespan": 2144,
+      "notes": "solve 21.8s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_isoa28k_27k_1c6",
+      "makespan": 14142,
+      "notes": "solve 0.1s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_isoa28k_27k_2c6",
+      "makespan": 6700,
+      "notes": "solve 0.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "srpg_isoa28k_27k_3c6",
+      "makespan": 4502,
+      "notes": "solve 36.3s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "usa14k_75k_1p",
+      "makespan": 40936,
+      "notes": "solve 0.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "usa14k_75k_2p",
+      "makespan": 20772,
+      "notes": "solve 1.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "usa14k_75k_3p",
+      "makespan": 14040,
+      "notes": "solve 69.8s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "xrh24k_30k_1p",
+      "makespan": 16240,
+      "notes": "solve 0.2s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "xrh24k_30k_2p",
+      "makespan": 8184,
+      "notes": "solve 0.8s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    },
+    {
+      "instance_uid": "xrh24k_30k_3p",
+      "makespan": 5580,
+      "notes": "solve 33.6s",
+      "solution_file": "results/yomi_solutions.zip",
+      "verified": true
+    }
+  ],
+  "method": "v2: exact recursive-bisection partition (branch-and-bound, no proxy constants; k=3 true two-level search) + per-zone exact min of {x-zigzag, y-zigzag, block-STC} (block-STC = spanning-tree coverage over cutter-maximal solid-rectangle blocks; search scores zigzag-only for speed, final zones use exact min)",
+  "updated_at": "2026-10-11T07:19:35Z"
 }
